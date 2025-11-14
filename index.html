@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UTS Logika Matematika</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #047857;
+      margin-bottom: 10px;
+    }
+
+    .info {
+      background: #ecfdf5;
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      margin-bottom: 2rem;
+      width: 320px;
+    }
+
+    .info p {
+      margin: 0.3rem 0;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 320px;
+    }
+
+    input {
+      width: 90%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #10b981;
+      box-shadow: 0 0 0 2px #a7f3d0;
+    }
+
+    button {
+      background-color: #10b981;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #059669;
+    }
+
+    .hasil {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .wajib {
+      color: #047857;
+    }
+
+    .tidak {
+      color: #b91c1c;
+    }
+  </style>
+</head>
+<body>
+  <h1>UTS Logika Matematika</h1>
+
+  <div class="info">
+    <p><b>NIM:</b> 256612005</p>
+    <p><b>Nama:</b> Raya Abdullah Ar Rasyid</p>
+    <p><b>Kelas:</b> Teknik Informatika NR 1</p>
+    <p><b>Dosen:</b> Iin Sholihin, S.Kom., M.Kom.</p>
+  </div>
+
+  <div class="container">
+    <label>Jumlah Emas (gram):</label><br />
+    <input type="number" id="emas" placeholder="contoh: 100" /><br />
+
+    <label>Lama Kepemilikan (tahun):</label><br />
+    <input type="number" id="haul" placeholder="contoh: 1" /><br />
+
+    <button onclick="cekZakat()">Cek Kewajiban Zakat</button>
+
+    <div id="hasil" class="hasil"></div>
+  </div>
+
+  <script>
+    function cekZakat() {
+      const emas = parseFloat(document.getElementById("emas").value) || 0;
+      const haul = parseFloat(document.getElementById("haul").value) || 0;
+      let hasilText = "";
+
+      // Logika matematika dasar (AND)
+      if (emas >= 85 && haul >= 1) {
+        hasilText = '<span class="wajib">Wajib Zakat</span>';
+      } else {
+        hasilText = '<span class="tidak">Tidak Wajib Zakat</span>';
+      }
+
+      document.getElementById("hasil").innerHTML = hasilText;
+    }
+  </script>
+</body>
+</html>
